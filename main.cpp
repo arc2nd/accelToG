@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include "GConverter.h"
-#include <QApplication>
+//#include <QApplication>
 using std::cout;
 using std::cin;
 
