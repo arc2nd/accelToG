@@ -1,0 +1,1 @@
+This program takes in the number of seconds it takes your vehicle to go from 0 to 60 miles per hour and converts that into it's equivalent g-forces. There is also a method to take the g-forces measurement and convert that into the equivalent time in 0 to 60 miles per hour.
