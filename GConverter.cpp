@@ -22,24 +22,28 @@ const double FEET_PER_METER = 3.28084;
 
 
 GConverter::GConverter() {}
-double GConverter::mphToG_conversion(double seconds)
+double GConverter::mphToG_conversion(double seconds, bool verbose)
 {
 	double milePH_per_second = 60.0 / seconds;
 	double miles_per_second_per_second = milePH_per_second / static_cast<double>(SECONDS_PER_HOUR);
 	double feet_per_second_per_second = miles_per_second_per_second * static_cast<double>(FEET_PER_MILE);
 	double meters_per_second_per_second = feet_per_second_per_second / static_cast<double>(FEET_PER_METER);
 	double retVal = meters_per_second_per_second / ACCEL_DUE_TO_GRAVITY;
-		
-	cout << milePH_per_second << " mph / s\n";
-	cout << miles_per_second_per_second << " mps / s\n";
-	cout << feet_per_second_per_second << " fps /s\n";
-	cout << meters_per_second_per_second << " meters per s / s\n";
-	cout << retVal << "g's\n";
-		
+	
+    if(verbose)
+    {
+        cout << "Converting seconds to Gs:\n";	
+	    cout << "\t" << milePH_per_second << " mph / s\n";
+	    cout << "\t" << miles_per_second_per_second << " mps / s\n";
+	    cout << "\t" << feet_per_second_per_second << " fps /s\n";
+	    cout << "\t" << meters_per_second_per_second << " meters per s / s\n";
+	    cout << "\t" << retVal << "g's\n";
+    }		
+
 	return retVal;
 }
 	
-double GConverter::GtoMph_conversion(double g_units)
+double GConverter::GtoMph_conversion(double g_units, bool verbose)
 {
 	double meters_per_second_per_second = g_units * ACCEL_DUE_TO_GRAVITY;
 	double feet_per_second_per_second = meters_per_second_per_second * static_cast<double>(FEET_PER_METER);
@@ -47,11 +51,15 @@ double GConverter::GtoMph_conversion(double g_units)
 	double milePH_per_second = miles_per_second_per_second * static_cast<double>(SECONDS_PER_HOUR);
 	double retVal = 60.0 / milePH_per_second;
 	
-	cout << meters_per_second_per_second << " meters per s / s\n";
-	cout << feet_per_second_per_second << " fps / s\n";
-	cout << miles_per_second_per_second << " mps / s\n";
-	cout << milePH_per_second << " mph / s\n";
-	cout << "0 - 60 in " << retVal << " seconds\n";
-		
+    if (verbose)
+    {
+        cout << "Converting Gs to seconds:\n";
+	    cout << "\t" << meters_per_second_per_second << " meters per s / s\n";
+	    cout << "\t" << feet_per_second_per_second << " fps / s\n";
+	    cout << "\t" << miles_per_second_per_second << " mps / s\n";
+	    cout << "\t" << milePH_per_second << " mph / s\n";
+	    cout << "\t0 - 60 in " << retVal << " seconds\n";
+    }		
+
 	return retVal;
 }

@@ -16,8 +16,8 @@ public:
 	GConverter();
 	~GConverter();
 	
-	static double mphToG_conversion(double seconds);
-	static double GtoMph_conversion(double g_units);
+	static double mphToG_conversion(double seconds, bool verbose);
+	static double GtoMph_conversion(double g_units, bool verbose);
 private:
 };
 
